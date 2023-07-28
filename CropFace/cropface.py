@@ -2,16 +2,15 @@ import cv2
 import mediapipe as mp
 from mediapipe.python.solutions.drawing_utils import _normalized_to_pixel_coordinates
 
-
-
+#모든 사람을 인식하는데 이걸로 모듈이 안짜짐
 # load face detection model
 mp_face = mp.solutions.face_detection.FaceDetection(
     model_selection=1, # model selection
-    min_detection_confidence=0.5 # confidence threshold
+    min_detection_confidence=0.5 
 )
-dframe= cv2.imread("E:/im/7multi.jpg")
+dframe= cv2.imread("multiperson.jpg")
 image_rows, image_cols, _ = dframe.shape
-image_input = cv2.cvtColor(dframe, cv2.COLOR_BGR2RGB)
+image_input = cv2.cvtColor(dframe, cv2.COLOR_BGR2RGB) #색이 약간 이상함ㅋㅋ
 results = mp_face.process(image_input)
 for detection in results.detections:
   location = detection.location_data
