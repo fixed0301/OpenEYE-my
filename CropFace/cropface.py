@@ -8,10 +8,12 @@ mp_face = mp.solutions.face_detection.FaceDetection(
     model_selection=1, # model selection
     min_detection_confidence=0.5 
 )
-dframe= cv2.imread("multiperson.jpg")
+dframe= cv2.imread("E:/im/7multi.jpg")
 image_rows, image_cols, _ = dframe.shape
-image_input = cv2.cvtColor(dframe, cv2.COLOR_BGR2RGB) #색이 약간 이상함ㅋㅋ
+#image_input = cv2.cvtColor(dframe, cv2.COLOR_BGR2RGB) #색이 약간 이상함ㅋㅋ
+image_input = dframe
 results = mp_face.process(image_input)
+print(results)
 for detection in results.detections:
   location = detection.location_data
 
