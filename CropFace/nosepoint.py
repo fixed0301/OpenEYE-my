@@ -22,7 +22,7 @@ while True:
             cv2.rectangle(img, (x1, y1), (x2, y2), (255, 0, 0), 3)
             if not result.detections:
                 continue
-        cv2.imshow("asdf", img)
+            cv2.imshow("asdf", img)
     else:
         break
 cap.release()
