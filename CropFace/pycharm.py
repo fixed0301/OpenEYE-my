@@ -39,6 +39,8 @@ class Face:
     def save_img(self, faceNum, facial_img):
         cv2.imwrite('/7multi/'+f'{faceNum}'+'.jpg', facial_img)
 
+    def resize_img(self, facial_img):
+        cv2.resize(facial_img, (28, 28)):
 
 
 img = cv2.imread("E:/im/7multi.jpg")
@@ -48,6 +50,7 @@ sorted_people = face.detect(show_results=False)
 for person in sorted_people:
     faceNum, facial_img = person[0], person[1]
     #face.save_img(faceNum, facial_img)
+    face.resize_img(facial_img)
     facial_img.classify() #classify를 여기에 넣자
 
 cv2.imshow('asdf', face.detect(show_results=True))
